@@ -1,0 +1,16 @@
+$backgroundColor: rgb(71, 71, 71);
+$footerfont: Georgia, Serif;
+
+.footer {
+    background-color: $backgroundColor;
+    position:sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    footer {
+        background-color: $backgroundColor;
+        text-align: center;
+        font-family: $footerfont;
+        color: aliceblue;
+    }
+}

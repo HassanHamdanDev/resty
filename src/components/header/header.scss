@@ -1,0 +1,16 @@
+$headerboreder: black;
+$backgroundColor: rgba(187, 3, 3, 0.863);
+
+.header {
+    background: $backgroundColor;
+    header {
+        background: $backgroundColor;
+        border-bottom: 1px solid rgb(17, 17, 17);
+        color: #eee;
+        text-align: center;
+        h1 {
+            font-family: "Courier New", Courier, monospace;
+            line-height: 1.4;
+        }
+    }
+}
