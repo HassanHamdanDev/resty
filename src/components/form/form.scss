@@ -4,16 +4,16 @@ $radius: 40%;
 form {
   display: inline-block;
   margin: auto;
-  width: 200px;
-  strong{
+  width: auto;
+  strong {
     margin-right: 1rem;
-
   }
   label {
     display: flex;
     margin: 1rem 0;
     &.methods {
       span {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         cursor: pointer;
         margin-right: 2rem;
         padding: 0.25rem 0.5rem;
@@ -24,5 +24,49 @@ form {
         }
       }
     }
+  }
+  input {
+    background: none;
+    background-color: white;
+    font-size: 15px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid red;
+    margin: 25px 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    background-color: #36d13b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 1.5rem;
+    padding: 0.25rem 1.5rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  button:hover {
+    background-color: #f8f8f8;
+    color: rgb(14, 13, 13);
+  }
+
+  textarea {
+    width: 300px;
+    height: 200px;
+  }
+  #loader {
+    display: block;
+    margin: 0 auto;
+    border-color: red;
   }
 }
