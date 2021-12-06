@@ -1,11 +1,14 @@
 $scrollcolor: rgb(0, 203, 218);
+
 .box {
     border-style: outset;
     border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     border-radius: 9px;
-    width: 400px;
-    padding: 50px;
-    margin: 20px;
+    width: 100%;
+    height: 600px;
+    padding: 10px;
+    margin: 12px;
     overflow: scroll;
 }
 /* Scrollbar styles */

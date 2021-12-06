@@ -1,49 +1,57 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
-
 // Let's talk about using index.js and some other name in the component folder
 // There's pros and cons for each way of doing this ...
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import { Row, Col, Container } from 'react-bootstrap';
+import axios from 'axios';
 
+export default function App() {
 
-class App extends React.Component {
+  const [counter, setCounter] = useState(0);
+  const [data, setData] = useState(null);
+  const [requestParams, setRequest] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
+  const handleApiCall = async (requestParams) => {
+    setRequest(requestParams);
+    let methodCall = requestParams.method.toLowerCase();
+    const response = await axios[methodCall](requestParams.url, (requestParams.body) ? (requestParams.body) : null);
+    setCounter(response.data.length)
+    const result = {
+      count: counter,
+      results: response.data,
     };
+    setLoading(true);
+    setData(result);
   }
+  
 
-  callApi = (requestParams) => {
-    // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
-    this.setState({ data, requestParams });
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL :  {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+  return (
+    <React.Fragment>
+      <Header />
+      <Container>
+        <Row xs={1} md={2} className="g-4">
+          <Col>
+            <Form handleApiCall={handleApiCall}  />
+            <div>
+              <div>Request Method: {requestParams.method}</div>
+              <div>URL :  {requestParams.url}</div>
+            </div>
+          </Col>
+          <Col>
+            <Results data={data} loading={loading}  />
+          </Col>
+        </Row>
         <Footer />
-      </React.Fragment>
-    );
-  }
+      </Container>
+    </React.Fragment>
+  );
 }
 
-export default App;
+
+
