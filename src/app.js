@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
-// Let's talk about using index.js and some other name in the component folder
-// There's pros and cons for each way of doing this ...
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
@@ -23,13 +21,23 @@ export default function App() {
     const response = await axios[methodCall](requestParams.url, (requestParams.body) ? (requestParams.body) : null);
     setCounter(response.data.length)
     const result = {
-      count: counter,
-      results: response.data,
+      Headers: {
+        "root": {
+          "content-type": "application/json; charset=utf-8",
+        }
+      },
+      results: {
+        count: counter,
+        data: response.data,
+      }
     };
-    setLoading(true);
     setData(result);
+    setLoading(true);
+    setInterval(() => {
+      setLoading(false);
+    }, 3000);
   }
-  
+
 
   return (
     <React.Fragment>
@@ -37,14 +45,14 @@ export default function App() {
       <Container>
         <Row xs={1} md={2} className="g-4">
           <Col>
-            <Form handleApiCall={handleApiCall}  />
+            <Form handleApiCall={handleApiCall} />
             <div>
               <div>Request Method: {requestParams.method}</div>
               <div>URL :  {requestParams.url}</div>
             </div>
           </Col>
           <Col>
-            <Results data={data} loading={loading}  />
+            <Results data={data} loading={loading} />
           </Col>
         </Row>
         <Footer />
