@@ -5,11 +5,18 @@ $scrollcolor: rgb(0, 203, 218);
     border: 2px solid rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
-    width: 100%;
+    width: 800px;
     height: 600px;
     padding: 10px;
     margin: 12px;
     overflow: scroll;
+    pre {
+        border: 1px solid silver;
+        border-radius: 4px;
+        padding: 8px 15px;
+        margin: 8px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 }
 /* Scrollbar styles */
 ::-webkit-scrollbar {
@@ -23,7 +30,7 @@ $scrollcolor: rgb(0, 203, 218);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: darken($color: $scrollcolor, $amount: 20);
+    background: darken($color: $scrollcolor, $amount: 10);
     border-radius: 10px;
 }
 

@@ -1,16 +1,21 @@
 import React from 'react';
 import './results.scss';
-import ClipLoader from "react-spinners/ClipLoader";
+import RingLoader from "react-spinners/RingLoader";
 
 
 export default function Results(props) {
+
   return (
     <section >
       <div className="box">
+        {props.loading ? (
           <div id='loader'>
-            {/* < ClipLoader loading={props.loading} size={150} /> */}
+            < RingLoader size={200} color={'cyan'} />
           </div>
-        < pre > {props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+        ) : (
+          < pre > {props.data ? JSON.stringify(props.data, null, 3) : null}</pre>
+        )
+        }
       </div>
     </section >
   );
