@@ -1,0 +1,60 @@
+.history {
+  background-color: #3640d1;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 1.5rem;
+  padding: 0.25rem 1.5rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  
+  .history:hover {
+    background-color: #f8f8f8;
+    color: rgb(14, 13, 13);
+  }
+  $scrollcolor: rgb(0, 203, 218);
+
+  .box {
+    border-style: outset;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+    width: 1300px;
+    height: 600px;
+    padding: 10px;
+    margin: 12px;
+    overflow: scroll;
+    pre {
+      border: 1px solid silver;
+      border-radius: 4px;
+      padding: 8px 15px;
+      margin: 8px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: 1px solid $scrollcolor;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: darken($color: $scrollcolor, $amount: 10);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: darken($color: $scrollcolor, $amount: 20);
+  }
+}

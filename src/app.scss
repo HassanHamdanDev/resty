@@ -8,6 +8,8 @@ body {
 }
 
 body {
+  min-height: 100vh;
+
   background: $backgroundColor;
   height: 100%;
   font-family: cursive;
@@ -20,5 +22,4 @@ body {
       margin-top: 10px;
     }
   }
-
 }
