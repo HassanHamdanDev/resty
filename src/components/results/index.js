@@ -13,7 +13,7 @@ export default function Results(props) {
             < RingLoader size={200} color={'cyan'} />
           </div>
         ) : (
-          < pre > {props.data ? JSON.stringify(props.data, null, 3) : null}</pre>
+          < pre className="json"> {props.data ? JSON.stringify(props.data, null, 3) : null}</pre>
         )
         }
       </div>
